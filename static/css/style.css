@@ -1,0 +1,245 @@
+/* General */
+body {
+    color: #333333;
+    margin: 0 1em;
+    font-family: helvetica, arial, sans-serif;
+    line-height: 1.5em;
+}
+
+main {
+    /* Prevent long word from extending out of main. */
+    word-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1em;
+    line-height: 1.2em;
+    margin-bottom: 0;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+pre, code {
+    /* Make 1em = 16px in Chrome, Firefox, and Safari. */
+    font-family: monospace, monospace; 
+    color: #000080;
+}
+
+pre {
+    background: #eeeeee;
+    padding: 0.1em 0.4em;
+    border-radius: 0.2em;
+    border: thin solid #cccccc;
+    /* Add scroll bar when a line of code is too long. */
+    overflow: auto;
+}
+
+blockquote {
+    font-style: italic;
+    padding: 0 1em;
+    border-left: 0.3em solid;
+}
+
+a:link, a:visited {
+    color: #0000e0;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+}
+
+hr {
+    color: #cccccc;
+    background-color: #cccccc;
+    height: 0.075em;
+    border: none;
+    margin: 1em 0;
+}
+
+footer {
+    text-align: center;
+}
+
+
+/* Navigations links */
+.home, .links {
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 1em;
+}
+
+.home a, .links a {
+    margin-right: 1em;
+}
+
+.links a:last-child {
+    margin-right: 0em;
+}
+
+
+/* Sidebars */
+.bio, .fblike {
+    text-align: center;
+}
+
+.bio .summary {
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+
+/* Posts */
+.article {
+    margin: 1em 0;
+}
+
+p.meta {
+    margin-top: 0;
+    font-size: 0.8em;
+    color: #777777;
+    font-style: italic;
+}
+
+p.summary {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+
+div .more {
+    margin-top: 0;
+    font-weight: bold;
+}
+
+
+/* RSS */
+.rss {
+    padding: 0.3em 0.35em;
+    border-radius: 0.25em;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+.rss:link, .rss:visited, .rss:hover, .rss:active {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.rss:link, .rss:visited {
+    background: #ff6600;
+}
+
+.rss:hover, .rss:active {
+    background: #ff8822;
+}
+
+
+/* Post, header, and suggestion links */
+header a:link, header a:visited,
+.article h2 a:link, .article h2 a:visited,
+.article h1 a:link, .article h1 a:visited,
+.more:link, .more:visited,
+.suggestions a:link, .suggestions a:visited {
+    color: #333333;
+}
+
+header a:hover, header a:active,
+.article h2 a:hover, .article h2 a:active,
+.article h1 a:hover, .article h1 a:active,
+.more:hover, .more:active,
+.suggestions a:hover, .suggestions a:active {
+    color: #777777;
+}
+
+
+/* Image galleries */
+.gallery {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.images, .captions {
+    display: table;
+    border-spacing: 0.2em 0;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.images a, .captions span {
+    display: table-cell;
+}
+
+.images img {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.captions span {
+    text-align: center;
+    padding: 0.5em;
+    font-size: 0.8em;
+}
+
+
+/* Wider displays */
+@media screen and (min-width: 40em) {
+
+    hr {
+        display: none;
+    }
+
+    main hr {
+        display: block;
+    }
+
+    .home, .links {
+        margin-top: 2em;
+    }
+
+    .home {
+        width: 24%;
+    }
+
+    .links {
+        margin-left: 1%;
+        width: 75%;
+    }
+
+    main {
+        width: 49%;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 1%;
+        margin-right: 2%;
+    }
+
+    .bio, .fblike {
+        /* Align with h1 in main content. */
+        margin-top: 2em;
+        width: 24%;
+        display: inline-block;
+    }
+
+    .bio {
+        float: left;
+    }
+
+    .fblike {
+        float: right;
+    }
+
+    .home a, .bio div {
+        /* Set width to that of bio image width. */
+        width: 150px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        display: block;
+    }
+
+    /* Prevent footer being placed within floating elements in pages
+       with little content, e.g., about page. */
+    footer {
+        clear: both;
+    }
+}

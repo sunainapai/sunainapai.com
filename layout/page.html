@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}{{ subtitle }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+
+<body>
+
+<header>
+<span class="home">
+    <a href="/">Sunaina Pai</a>
+</span><span class="links">
+    <a href="/blog/">Blog</a>
+    <a href="/trips/">Trips</a>
+    <a href="/about/">About</a>
+</span>
+</header>
+
+<main>
+{{ content }}
+</main>
+
+<hr>
+
+<div class="bio">
+    <div>
+        <img src="/img/bio-image.jpg" alt="Profile picture">
+        <h3>{{ author }}</h3>
+        <p class="line">
+        Avid learner, Movie buff, Gadget freak, Food lover,
+        Travel enthusiast
+        </p>
+        <p><a href="https://github.com/sunainapai">Github</a></p>
+    </div>
+</div> <!-- end bio -->
+
+<hr>
+
+<div class="fblike">
+    <div class="fb-like-box" data-href="https://www.facebook.com/sunainapai.in"
+         data-colorscheme="light" data-show-faces="true" data-header="false"
+         data-stream="false" data-show-border="true"></div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+</div> <!-- end facebook-like -->
+
+<hr>
+
+<footer>
+    <p>&copy; {{ start_year }}&ndash;{{ current_year }} {{ author }}</p>
+</footer>
+
+</body>
+</html>

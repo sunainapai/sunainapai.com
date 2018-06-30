@@ -1,0 +1,71 @@
+<!-- title: Change Terminal Prompt in Mac OS X -->
+<!-- tag: technology -->
+<p>
+When you open a Terminal in Mac OS X, the default command prompt
+displayed is a very long name which goes like this:
+<code>&lt;ComputerName&gt;:&lt;CurrentDirectory&gt; &lt;UserName&gt;$</code>.
+In my case it was <code>Sunainas-MacBook-Pro:~ sunaina$</code>, quite
+boring!
+</p>
+
+<p>
+I prefer something like <code>sunaina@MacBook:~$</code>, commonly used
+in the Linux world. I did the following customizations.
+</p>
+
+<ul>
+<li>
+<p>
+On Terminal, execute the following commands.
+</p>
+<pre>
+sudo scutil --set ComputerName "MacBook"
+sudo scutil --set LocalHostName "MacBook"
+sudo scutil --set HostName "MacBook"
+</pre>
+<p>
+The <code>ComputerName</code> and <code>LocalHostName</code> are also
+accessible as <code>Computer Name</code> and <code>Local Hostname</code>
+respectively, at <code>System Preferences &gt; Sharing</code>. The
+<code>ComputerName</code>, <code>LocalHostName</code> and
+<code>HostName</code> are saved in
+<code>/Library/Preferences/SystemConfiguration/preferences.plist</code>.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>~/.bash_profile</code> with the following command.
+</p>
+<pre>
+mvim ~/.bash_profile
+</pre>
+</li>
+<li>
+<p>
+Add the following line to <code>~/.bash_profile</code>, save and quit.
+</p>
+<pre>
+export PS1="\u@\h:\w$ "
+</pre>
+<p>
+Here,
+</p>
+    <ul>
+    <li><code>\u</code> stands for the username of the current user.</li>
+    <li><code>\h</code> stands for the hostname upto the first '.'.</li>
+    <li><code>\w</code> stands the current working directory.</li>
+    </ul>
+</li>
+<li>
+<p>
+Open a new Terminal. You should see your customized prompt.
+</p>
+</li>
+</ul>
+
+<p>
+Play around with the <a
+href="http://www.gnu.org/software/bash/manual/bashref.html#Printing-a-Prompt">prompt
+escapes</a> for the <code>PS1</code> shell variable and see what you
+prefer.
+</p>

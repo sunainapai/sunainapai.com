@@ -1,0 +1,13 @@
+# Ignore Vim swap files.
+*.sw?
+
+# Ignore macOS Desktop Services Store.
+.DS_Store
+
+# Ignore generated files.
+_site/
+_live/
+_gone/
+img
+*.pyc
+__pycache__

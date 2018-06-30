@@ -1,0 +1,48 @@
+<!-- title: Install MacVim on Mac OS X -->
+<!-- tag: technology -->
+<p>
+Download <code>MacVim-snapshot-73-Mavericks.tbz</code> from
+<a href="https://github.com/b4winckler/macvim/releases">https://github.com/b4winckler/macvim/releases</a>.
+(Note: The binary requires Mac OS X 10.9 (Mavericks) or later. It will
+not run on earlier versions of Mac OS X!)
+</p>
+
+<p>
+To install, drag the <code>MacVim.app</code> to the
+<code>Applications</code> folder. You are good to go by double clicking
+this MacVim icon.
+</p>
+
+<p>
+To start MacVim from Terminal, set the <code>PATH</code> enviroment
+variable to include the location where the <code>mvim</code> script has
+to be found. To do this move the <code>mvim</code> script to your
+favourite location, which in my case is <code>/Users/sunaina/bin</code>
+and add this path to <code>/etc/paths</code>.
+</p>
+
+<p>
+To set <code>PATH</code>, enter the following command on Terminal.
+</p>
+
+<pre>
+sudo vi /etc/paths
+</pre>
+
+<p>
+Enter your password and you will see all the paths you have. Add
+<code>the path to the mvim script</code> to this file, save and quit.
+Open a new Terminal. You should be able to start MacVim from Terminal
+with the following command.
+</p>
+
+<pre>
+mvim
+</pre>
+
+<p>
+You can customize your MacVim to suit your needs. For doing this create
+a <code>.vimrc</code> file at your home location. You can download my
+customizations from <a
+href="https://github.com/sunainapai/dotfiles">https://github.com/sunainapai/dotfiles</a>.
+</p>

@@ -1,0 +1,1 @@
+0 0 * * * (date; certbot renew -n --renew-hook "systemctl reload nginx"; date; echo ::) >> /var/log/certbot.log 2>&1
