@@ -109,7 +109,7 @@ def read_content(filename):
         except ImportError as e:
             log('WARNING: Cannot render Markdown in {}: {}', filename, str(e))
 
-    # Update the dictionary with content text and summary text.
+    # Update the dictionary with content, summary, and RFC 2822 date.
     content.update({
         'content': text,
         'summary': truncate(text),
