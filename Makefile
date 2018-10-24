@@ -24,7 +24,7 @@ https: http
 	@echo Setting up HTTPS website ...
 	certbot certonly -n --agree-tos -m '$(MAIL)' --webroot \
 	                 -w '/var/www/$(FQDN)' -d '$(FQDN),www.$(FQDN)'
-	(crontab -l | sed '/certbot/d'; cat etc/crontab) | crontab
+	(crontab -l | sed '/::::/d'; cat etc/crontab) | crontab
 	ln -snf "$$PWD/etc/nginx/https.$(FQDN)" '/etc/nginx/sites-enabled/$(FQDN)'
 	systemctl reload nginx
 	@echo Done; echo
