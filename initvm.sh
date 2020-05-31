@@ -14,7 +14,7 @@ adduser "$username" sudo
 # Copy SSH keys.
 umask 077
 mkdir -p /home/$username/.ssh
-cat /tmp/keys.txt >> /home/$username/.ssh/authorized_keys
+cat /tmp/key*.txt >> /home/$username/.ssh/authorized_keys
 chown -R $username:$username /home/$username/.ssh
 
 # Disable root login.
