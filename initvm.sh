@@ -30,7 +30,7 @@ systemctl restart ssh
 
 # Install minimal set of tools.
 apt-get update
-apt-get -y install git make tree
+apt-get -y install git make tree rsync
 
 # Set timezone.
 rm -f /etc/localtime
