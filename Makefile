@@ -81,7 +81,7 @@ live: site
 site:
 	@echo Generating website ...
 	./makesite.py
-	ln -snf ~sunaina/blob/sunainapai.in/img _site/img
+	ln -snf /opt/blob/sunainapai.in/img _site/img
 	@echo Done; echo
 
 pull:
