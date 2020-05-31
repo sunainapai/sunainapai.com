@@ -6,6 +6,7 @@ help:
 	@echo 'Usage: make [target]'
 	@echo
 	@echo 'High-level targets:'
+	@echo '  setup   Install Debian packages.'
 	@echo '  https   Reinstall live website and serve with Nginx via HTTPS.'
 	@echo '  http    Reinstall live website and serve with Nginx via HTTP.'
 	@echo '  update  Pull latest Git commits and update live website.'
@@ -19,6 +20,10 @@ help:
 	@echo
 	@echo 'Default target:'
 	@echo '  help    Show this help message.'
+
+setup:
+	apt-get update
+	apt-get -y install nginx certbot
 
 https: http
 	@echo Setting up HTTPS website ...
