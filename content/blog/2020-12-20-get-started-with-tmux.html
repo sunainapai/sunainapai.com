@@ -1,0 +1,489 @@
+<!-- title: Get Started With Tmux -->
+<!-- tag: technology -->
+
+<h2>To Tmux or Not to Tmux, That Is the Question!</h2>
+
+<p>
+Before getting started with tmux, let us go over some questions to see
+if tmux is right for you:
+</p>
+
+<ul>
+  <li>
+    Do you use a terminal as part of your your development workflow?
+  </li>
+  <li>
+    Do you use multiple terminals in different tabs or windows to
+    navigate files, edit text, compile and run code, tail log files,
+    push code to repository, and run one-time adhoc commands?
+  </li>
+  <li>
+    Do you work on multiple projects at a time, each with its own set of
+    workflow and environment requirements, and often have to switch
+    context?
+  </li>
+  <li>
+    Do you SSH into remote systems?
+  </li>
+  <li>
+    Have you ever got disconnected from a remote SSH session in the
+    middle of a task that you were running and monitoring?
+  </li>
+</ul>
+
+<p>
+If your answer to any of the questions is an yes, then tmux is for you!
+</p>
+
+
+<h2>What Is Tmux?</h2>
+
+<p>
+Tmux is a terminal multiplexer. You can run multiple terminal programs
+inside tmux, all of which can be accessed from the single terminal that
+is running tmux. This is called a tmux session. You can have multiple
+such tmux sessions, say one for each project you are working on. You can
+detach from a tmux session and later reattach to it. When you run
+programs in a tmux session, the session remains intact and continues
+running your programs even if you detach from the session. You can start
+where you left off the previous day, or you can even access the session
+from a different computer.
+</p>
+
+<p>
+If you have worked with remote servers using remote desktop connection,
+you will be familiar with how the applications that you open in the
+server are kept as is even when you disconnect. You can then resume the
+session by reconnecting to it. You can even reconnect to the remote
+desktop using a different client or a different computer. Tmux helps you
+to achieve similar results for terminal sessions.
+</p>
+
+<p>
+When you run the <code>tmux</code> command, tmux starts a server process
+if it is not already running, and a tmux session is created. The tmux
+server runs as a background process in your system and manages all the
+terminals running inside tmux. You can create additional sessions in the
+tmux server if needed by using the <code>tmux</code> command. A tmux
+session is a group of related tmux windows. Think of all the terminal
+tabs you open to get to your development workflow of a particular
+project. All these can be grouped together as windows in a tmux session.
+A tmux window comprises of one or more panes. Each pane is like a
+terminal by itself. Panes can be organized vertically, horizonatally, or
+a mix of both. Think of editing, compiling, and executing code on the
+left pane while tailing a related log file on the right pane as an
+example. At any given time, there is one active pane where the commands
+you type are accepted. You can switch between panes, windows, and
+sessions as needed.
+</p>
+
+<div class="gallery">
+<div class="images">
+  <a href="/img/technology/get-started-with-tmux/tmux-session.png" target="_blank"><img
+      src="/img/technology/get-started-with-tmux/tmux-session.png"
+      alt="A screenshot of tmux with multiple sessions, windows and panes"></a>
+</div> <!-- end images -->
+<div class="captions">
+  <span>Tmux with multiple sessions, windows, and panes</span>
+</div> <!-- end captions -->
+</div> <!-- end gallery -->
+
+<p>
+Let us now see how to get started with tmux.
+</p>
+
+
+<h2>Install Tmux</h2>
+
+<p>
+If you are on a Debian, Ubuntu, or another Debian-based system, enter
+the following command:
+</p>
+
+<pre><code>sudo apt-get install tmux</code></pre>
+
+<p>
+If you are on macOS with Homebrew installed, enter the following
+command:
+</p>
+
+<pre><code>brew install tmux</code></pre>
+
+<p>
+If you are on any other system or environment, see
+<a href="https://github.com/tmux/tmux/wiki/Installing">Tmux Wiki:
+  Installing</a> for installation details.
+</p>
+
+
+<h2>Create, Detach From, and Attach to Sessions</h2>
+
+<p>
+To create a new tmux session, enter the following command:
+</p>
+
+<pre><code>tmux</code></pre>
+
+<p>
+Run some program in this session. Maybe tail a log file. This will help
+with the next steps where you detach and reattach to a session.
+</p>
+
+<p>
+To detach your terminal from a tmux session, enter the following
+command:
+</p>
+
+<pre><code>tmux detach</code></pre>
+
+<p>
+Tmux will keep your session intact. All your programs keep running on
+the server. To attach your terminal as a client back to an existing tmux
+session, enter the following command:
+</p>
+
+<pre><code>tmux attach</code></pre>
+
+<p>
+Note that it is not necessary to type out the <code>tmux</code> commands
+in full. You can use any unambiguous abbreviation of the commands. For
+example, <code>tmux det</code> and <code>tmux at</code> are equivalent
+to <code>tmux detach</code> and <code>tmux attach</code>, respectively.
+</p>
+
+<p>
+By default, the new sessions are named 0, 1 and so on. To choose another
+name for the session, use the following command to start a new session:
+</p>
+
+<pre><code>tmux new -s &lt;session-name&gt;</code></pre>
+
+<p>
+Here <code>&lt;session-name&gt;</code> denotes the name of the session
+you choose. You can also rename an existing session with this command:
+</p>
+
+<pre><code>tmux rename &lt;new-name&gt;</code></pre>
+
+<p>
+If you have multiple tmux sessions running and you want to target a
+specific session to rename, you can use the <code>-t</code> option to
+specify the session name you want to target, like this:
+</p>
+
+<pre><code>tmux rename -t &lt;session-name&gt; &lt;new-name&gt;</code></pre>
+
+<p>
+Without the <code>-t</code> option, it renames the current session.
+</p>
+
+<p>
+The <code>-t</code> option is useful for attaching to a specific tmux
+session too when multiple tmux sessions are running. By default
+<code>tmux attach</code> attaches to the most recently used session that
+is not attached. You can attach to a specific session like this:
+</p>
+
+<pre><code>tmux attach -t &lt;session-name&gt;</code></pre>
+
+<p>
+Sometimes while attaching to a tmux session, you might want to detach
+the other clients to connected to it. That can be achieved with the
+following commands:
+</p>
+
+<pre><code>tmux attach -d</code></pre>
+<pre><code>tmux attach -d -t &lt;session-name&gt;</code></pre>
+
+<p>
+While you are inside a tmux session, you can also change the name of the
+attached session by using the key-sequence <code>C-b $</code> which
+prompts for a new name for the session. The key-sequence <code>C-b
+$</code> is bound to the <code>rename</code> command that we saw above.
+Similarly, the key-sequence <code>C-b d</code> is bound to the
+<code>detach</code> command. To understand how tmux key bindings and
+commands work together, read the next two sections.
+</p>
+
+
+<h2>Understand Tmux Prefix Keys</h2>
+
+<p>
+Once you attach your terminal as a client to a tmux session, all
+keystrokes are sent to the program running in the active pane of the
+current tmux window. By default it is your shell. For key-sequences that
+control tmux itself, a special key-sequence called the prefix key must
+be pressed. By default the prefix key is <code>C-b</code>. Here
+<code>C</code> denotes the <code>Ctrl</code> modifier key, i.e., to
+enter <code>C-b</code>, press and hold the <code>Ctrl</code> key, then
+press and release the <code>b</code> key, and finally release the
+<code>Ctrl</code> key. When the prefix key is entered like this, tmux
+waits for another keystroke or key-sequence to determine which tmux
+command needs to be executed. For example, when we enter <code>C-b
+$</code> to rename the current session, <code>C-b</code> is the prefix
+key that tells tmux that we are going to invoke a tmux command and then
+the <code>$</code> keystroke tells tmux that we want to invoke the tmux
+<code>rename</code> command.
+</p>
+
+
+<h2>Key Bindings, Commands, and Command Prompt</h2>
+
+<p>
+The key-sequence <code>C-b ?</code> shows the list of key bindings along
+with short descriptions about what they do. The output is shown in the
+view mode in the active pane. The pane in view mode has its own key
+bindings which don't need the prefix key. By default the view mode has
+Emacs key bindings that you can use to navigate the output. However, it
+can be configured to use vi key bindings too.
+</p>
+
+<p>
+Any time key bindings are used, they run the underlying tmux commands.
+For example <code>C-b c</code> runs the <code>neww</code> command that
+creates a new window. Commands can be run directly from the shell as we
+saw when we created new session using the <code>tmux new</code> command.
+Just like any other Unix commands, tmux commands have zero or more
+command line options that may or may not accept arguments. For example,
+the <code>attach</code> command that we saw earlier accepts the
+<code>-d</code> option to detach any other clients that are attached to
+the session. This option does not require an argument. The
+<code>attach</code> command also accepts another option <code>-t</code>
+that requires an argument to specify the name of the target session you
+want to attach to.
+</p>
+
+<p>
+You might mostly want to use the key bindings to manipulate tmux because
+they are convenient. However, the tmux commands can be useful especially
+when you want to perform a task that is supported only by an option. The
+tmux commands are also useful if you want to write a script to
+manipulate tmux.
+</p>
+
+<p>
+Tmux commands can be run from the shell as we have seen so far. There is
+also an iteractive command prompt available within tmux that you can
+open using <code>C-b :</code>. This prompt accepts tmux commands. For
+example, <code>C-b :neww</code> creates a new window in the attached
+session. Some of the tmux commands run in this manner show the output in
+the view mode in the active pane. For example, <code>C-b :ls</code>
+shows the list of all available sessions.
+</p>
+
+
+<h2>Create New Windows in a Session and Switch Between Them</h2>
+
+<p>
+You can create new window in a session by using <code>C-b c</code> or
+<code>C-b :neww</code>. Each window is numbered starting from 0. Every
+new window is created at the first available index. This means that if
+there are gaps in the list of window numbers, a new window occupies the
+first available number in the gaps. The new window thus created becomes
+the current window of the session. The current window is identified by
+the <code>*</code> suffix in its name and the previous window is
+identified by the <code>-</code> suffix in its name.
+</p>
+
+<p>
+If you want to create a new window but not make it the current window,
+you can do so with the <code>-d</code> option like this: <code>C-b :neww
+-d</code>. You can also create a window at a specific index by using the
+<code>-t</code> option like this: <code>C-b :neww -t 9</code>.
+</p>
+
+<p>
+<code>C-b 0</code> takes you to window 0, <code>C-b 1</code> takes you
+to window 1, and so on until <code>C-b 9</code>. <code>C-b '</code>
+prompts for an index to switch to that window. This can be useful if you
+want to go to windows with indices greater than 9. <code>C-b p</code>
+takes you to the previous window and <code>C-b n</code> takes you to the
+next window in the window list by index. <code>C-b l</code> takes you to
+the last window that was active before the current one. This is very
+useful for alternating between two windows again and again.
+</p>
+
+<p>
+To rename the current window, you can use <code>C-b :renamew
+  &lt;new-name&gt;</code> or <code>C-b ,</code> which prompts for the
+new name for the window.
+</p>
+
+<p>
+I find it convenient not to exceed 10 windows (indices 0-9) in a
+session, so that I can switch between them using <code>C-b
+&lt;number&gt;</code>.
+</p>
+
+
+<h2>Create New Panes in a Window and Switch Between Them</h2>
+
+<p>
+You can create a new pane by splitting a pane in a window. <code>C-b
+  %</code> splits the current pane into left and right panes. <code>C-b
+  &quot;</code> splits the current pane into top and bottom panes. These
+new panes can be split again and again recursively.
+</p>
+
+<p>
+<code>C-b o</code> takes you to the next pane by number. You can use
+<code>C-b &lt;Up&gt;</code>, <code>C-b &lt;Down&gt;</code>, <code>C-b
+&lt;Left&gt;</code>, or <code>C-b &lt;Right&gt;</code> to go to the pane
+above, below, left, or right, respectively, of the active pane. These
+keys wrap around the window, so to get to the left most pane from the
+right most pane, you can press <code>C-b &lt;Right&gt;</code>.
+</p>
+
+
+<h2>List Sessions and Switch Between Them</h2>
+
+<p>
+You can see a list of available sessions by executing the following
+command on the shell:
+</p>
+
+<pre><code>tmux ls</code></pre>
+
+<p>
+You can then attach to the session you are interested in. Another way to
+do this is inside tmux using the tree mode. You can use the key sequence
+<code>C-b s</code> or enter <code>C-b :ls</code> to go to the tree mode
+that shows the list of sessions with the attached session selected. Keys
+to control tree mode do not need prefix keys. The list of sessions can
+be navigated using the <code>&lt;Up&gt;</code> and
+<code>&lt;Down&gt;</code> keys. The Emacs key bindings <code>C-p</code>
+and <code>C-n</code> work too. If vi key bindings are configured then
+<code>j</code> and <code>k</code> work too. Press the <code>space</code>
+bar to expand or collapse the list of windows under each session. Press
+the <code>enter</code> key to go to a session or window.
+</p>
+
+
+<h2>Configure Tmux</h2>
+
+<p>
+You can configure tmux by defining the configuration in a file called
+<code>.tmux.conf</code> in your home directory. This configuration comes
+into effect when the tmux server is first started. When you modify this
+configuration, be sure to restart your tmux server. A graceful way to do
+so is to quit all windows and sessions, and then start a new tmux
+session. A quick and dirty way to do so is with the following commands:
+</p>
+
+<pre><code>tmux kill-server tmux</code></pre>
+
+<p>
+Let us see some of the useful lines of configuration that can go into
+<code>~/.tmux.conf</code>.
+</p>
+
+<ul>
+  <li>
+    <p>
+      Set <code>C-j</code> as the secondary prefix key.
+    </p>
+    <pre><code>set -g prefix2 C-j</code></pre>
+    <p>
+      This allows you to control tmux with <code>C-j</code> in addition
+      to <code>C-b</code>. I find <code>C-j</code> to be a more
+      convenient prefix key because the <code>j</code> key exists in the
+      home row of the keyboard right under the index finger.
+    </p>
+  </li>
+  <li>
+    <p>
+      Send the secondary prefix key to a window, i.e., send
+      <code>C-j</code> when <code>C-j C-j</code> is pressed.
+    </p>
+    <pre><code>bind-key C-j send-prefix -2</code></pre>
+    <p>
+      This allows you to send <code>C-j</code> to a program running
+      within tmux.
+    </p>
+  </li>
+  <li>
+    <p>
+      Customize kill key-sequences such that they do not ask for
+      confirmation.
+    </p>
+    <pre><code>bind-key &amp; kill-window bind-key x kill-pane</code></pre>
+    <p>
+      The key binding <code>C-b &amp;</code> kills the current window
+      and the key binding <code>C-b x</code> kills the current pane.
+      However, without the configuration specified above, you will be
+      prompted to confirm the operation with a <code>y</code> or
+      <code>n</code>. For example: <code>C-b x</code> in pane number 2,
+      will prompt you with <code>kill-pane 2? (y/n)</code>. It is
+      convenient to be able to kill a window or a pane without having to
+      go through a confirmation prompt.
+    </p>
+  </li>
+  <li>
+    <p>
+      Open a new pane or window with the current directory of the
+      current pane, not the directory in which the first tmux session
+      was started.
+    </p>
+<pre>
+<code>bind '&quot;' split-window -c &quot;#{pane_current_path}&quot;
+bind % split-window -h -c &quot;#{pane_current_path}&quot;
+bind c new-window -c &quot;#{pane_current_path}&quot;</code>
+</pre>
+    <p>
+      Here the <code>-c</code> option is used to specify the start
+      directory for the new pane. The current path is represented with
+      the replacement variable <code>pane_current_path</code> in the
+      commands above. The <code>-h</code> option specifies that the
+      window should be split into left and right panes.
+    </p>
+  </li>
+  <li>
+    <p>
+      Use 256 colors in tmux.
+    </p>
+    <pre><code>set -g default-terminal screen-256color</code></pre>
+    <p>
+      By default tmux sets the <code>TERM</code> environment variable to
+      <code>screen</code>. With this setting, most programs will support
+      8 colors only. For example, Vim syntax highlighting will use 8
+      colors only. To configure tmux to set the terminal to use 256
+      colors, set the <code>TERM</code> environment variable to
+      <code>screen-256color</code>.
+    </p>
+    <p>
+    With this configuration, programs that use colors can make use of
+    all 256 colors. Here is a quick shell command to test how the 256
+    look in the terminal:
+    </p>
+<pre>
+<code>for i in {0..255}; do tput setaf $i; printf &quot;$i &quot;; done</code>
+</pre>
+  </li>
+  <li>
+    <p>
+      Use vi key bindings in tmux.
+    </p>
+    <pre><code>set -g mode-keys vi</code></pre>
+    <p>
+      By default, tmux uses Emacs key bindings in various modes, e.g.,
+      view-mode, tree-mode, etc. If you use Vim instead of Emacs, it is
+      convenient to set vi key bindings.
+    </p>
+  </li>
+</ul>
+
+<p>
+I have made my tmux configuration available at
+<a href="https://github.com/sunainapai/dotfiles/blob/master/tmux.conf">https://github.com/sunainapai/dotfiles/blob/master/tmux.conf</a>.
+</p>
+
+<h2>References</h2>
+
+<ul>
+  <li>
+    <a href="https://github.com/tmux/tmux/wiki/Getting-Started">Tmux Wiki: Getting Started</a>
+  </li>
+  <li>
+    <a href="https://man.openbsd.org/tmux">Tmux Manual</a>
+  </li>
+</ul>
