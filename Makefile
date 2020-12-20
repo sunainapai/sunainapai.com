@@ -81,7 +81,9 @@ live: site
 site:
 	@echo Generating website ...
 	./makesite.py
-	ln -snf /opt/blob/sunainapai.in/img _site/img
+	# Look for blob directory and create a symbolic link to it.
+	for d in /opt/blob/sunainapai.in/img ~/blob/sunainapai.in/img; \
+	do if [ -e "$$d" ]; then ln -snf "$$d" _site/img; break; fi done
 	@echo Done; echo
 
 pull:
