@@ -78,7 +78,7 @@ footer {
 
 
 /* Sidebars */
-.bio, .fblike {
+.bio {
     text-align: center;
 }
 
@@ -86,7 +86,6 @@ footer {
     font-style: italic;
     font-size: 0.9em;
 }
-
 
 /* Posts */
 .article {
@@ -212,7 +211,7 @@ header a:hover, header a:active,
         margin-right: 2%;
     }
 
-    .bio, .fblike {
+    .bio {
         /* Align with h1 in main content. */
         margin-top: 2em;
         width: 24%;
@@ -221,10 +220,6 @@ header a:hover, header a:active,
 
     .bio {
         float: left;
-    }
-
-    .fblike {
-        float: right;
     }
 
     .home a, .bio div {
