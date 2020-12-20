@@ -82,9 +82,8 @@ footer {
     text-align: center;
 }
 
-.bio .summary {
-    font-style: italic;
-    font-size: 0.9em;
+.biolinks a {
+  display: block;
 }
 
 /* Posts */
