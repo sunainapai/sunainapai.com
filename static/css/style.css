@@ -1,6 +1,6 @@
 /* General */
 body {
-    color: #333333;
+    color: #333;
     margin: 0 1em;
     font-family: helvetica, arial, sans-serif;
     line-height: 1.5em;
@@ -20,14 +20,14 @@ h1, h2, h3, h4, h5, h6 {
 pre, code {
     /* Make 1em = 16px in Chrome, Firefox, and Safari. */
     font-family: monospace, monospace; 
-    color: #000080;
+    color: #008;
 }
 
 pre {
-    background: #eeeeee;
+    background: #eee;
     padding: 0.1em 0.4em;
     border-radius: 0.2em;
-    border: thin solid #cccccc;
+    border: thin solid #ccc;
     /* Add scroll bar when a line of code is too long. */
     overflow: auto;
 }
@@ -39,7 +39,7 @@ blockquote {
 }
 
 a:link, a:visited {
-    color: #0000e0;
+    color: #00d;
     text-decoration: none;
 }
 
@@ -48,8 +48,8 @@ a:hover, a:active {
 }
 
 hr {
-    color: #cccccc;
-    background-color: #cccccc;
+    color: #ccc;
+    background-color: #ccc;
     height: 0.075em;
     border: none;
     margin: 1em 0;
@@ -96,7 +96,7 @@ footer {
 p.meta {
     margin-top: 0;
     font-size: 0.8em;
-    color: #777777;
+    color: #777;
     font-style: italic;
 }
 
@@ -120,16 +120,16 @@ div .more {
 }
 
 .rss:link, .rss:visited, .rss:hover, .rss:active {
-    color: #ffffff;
+    color: #fff;
     text-decoration: none;
 }
 
 .rss:link, .rss:visited {
-    background: #ff6600;
+    background: #f60;
 }
 
 .rss:hover, .rss:active {
-    background: #ff8822;
+    background: #f82;
 }
 
 
@@ -139,7 +139,7 @@ header a:link, header a:visited,
 .article h1 a:link, .article h1 a:visited,
 .more:link, .more:visited,
 .suggestions a:link, .suggestions a:visited {
-    color: #333333;
+    color: #333;
 }
 
 header a:hover, header a:active,
@@ -147,7 +147,7 @@ header a:hover, header a:active,
 .article h1 a:hover, .article h1 a:active,
 .more:hover, .more:active,
 .suggestions a:hover, .suggestions a:active {
-    color: #777777;
+    color: #777;
 }
 
 
