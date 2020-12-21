@@ -32,7 +32,7 @@ if tmux is right for you:
 </ul>
 
 <p>
-If your answer to any of the questions is an yes, then tmux is for you!
+If you answered yes to any of these questions, then tmux is for you!
 </p>
 
 
@@ -199,7 +199,7 @@ following commands:
 While you are inside a tmux session, you can also change the name of the
 attached session by using the key-sequence <code>C-b $</code> which
 prompts for a new name for the session. The key-sequence <code>C-b
-$</code> is bound to the <code>rename</code> command that we saw above.
+$</code> is bound to the <code>rename</code> command that you saw above.
 Similarly, the key-sequence <code>C-b d</code> is bound to the
 <code>detach</code> command. To understand how tmux key bindings and
 commands work together, read the next two sections.
@@ -219,10 +219,10 @@ enter <code>C-b</code>, press and hold the <code>Ctrl</code> key, then
 press and release the <code>b</code> key, and finally release the
 <code>Ctrl</code> key. When the prefix key is entered like this, tmux
 waits for another keystroke or key-sequence to determine which tmux
-command needs to be executed. For example, when we enter <code>C-b
+command needs to be executed. For example, when you enter <code>C-b
 $</code> to rename the current session, <code>C-b</code> is the prefix
-key that tells tmux that we are going to invoke a tmux command and then
-the <code>$</code> keystroke tells tmux that we want to invoke the tmux
+key that tells tmux that you are going to invoke a tmux command and then
+the <code>$</code> keystroke tells tmux that you want to invoke the tmux
 <code>rename</code> command.
 </p>
 
@@ -241,13 +241,13 @@ can be configured to use vi key bindings too.
 <p>
 Any time key bindings are used, they run the underlying tmux commands.
 For example <code>C-b c</code> runs the <code>neww</code> command that
-creates a new window. Commands can be run directly from the shell as we
-saw when we created new session using the <code>tmux new</code> command.
-Just like any other Unix commands, tmux commands have zero or more
-command line options that may or may not accept arguments. For example,
-the <code>attach</code> command that we saw earlier accepts the
-<code>-d</code> option to detach any other clients that are attached to
-the session. This option does not require an argument. The
+creates a new window. Commands can be run directly from the shell as you
+saw when you created new session using the <code>tmux new</code>
+command. Just like any other Unix commands, tmux commands have zero or
+more command line options that may or may not accept arguments. For
+example, the <code>attach</code> command that you saw earlier accepts
+the <code>-d</code> option to detach any other clients that are attached
+to the session. This option does not require an argument. The
 <code>attach</code> command also accepts another option <code>-t</code>
 that requires an argument to specify the name of the target session you
 want to attach to.
@@ -262,8 +262,8 @@ manipulate tmux.
 </p>
 
 <p>
-Tmux commands can be run from the shell as we have seen so far. There is
-also an iteractive command prompt available within tmux that you can
+Tmux commands can be run from the shell as you have seen so far. There
+is also an interactive command prompt available within tmux that you can
 open using <code>C-b :</code>. This prompt accepts tmux commands. For
 example, <code>C-b :neww</code> creates a new window in the attached
 session. Some of the tmux commands run in this manner show the output in
@@ -406,7 +406,10 @@ Let us see some of the useful lines of configuration that can go into
       Customize kill key-sequences such that they do not ask for
       confirmation.
     </p>
-    <pre><code>bind-key &amp; kill-window bind-key x kill-pane</code></pre>
+<pre>
+<code>bind-key &amp; kill-window
+bind-key x kill-pane</code>
+</pre>
     <p>
       The key binding <code>C-b &amp;</code> kills the current window
       and the key binding <code>C-b x</code> kills the current pane.
