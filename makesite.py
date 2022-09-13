@@ -224,7 +224,7 @@ def main():
     params = {
         'subtitle': ' - Sunaina Pai',
         'author': 'Sunaina Pai',
-        'site_url': 'https://sunainapai.in',
+        'site_url': 'https://sunainapai.com',
         'start_year': 2014,
         'current_year': datetime.datetime.now().year
     }
