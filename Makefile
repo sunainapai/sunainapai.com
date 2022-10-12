@@ -1,6 +1,6 @@
 NAME = sunainapai
-FQDN = $(NAME).in
-MAIL = $(FQDN)@gmail.com
+FQDN = $(NAME).com
+MAIL = $(NAME).in@gmail.com
 
 help:
 	@echo 'Usage: make [target]'
