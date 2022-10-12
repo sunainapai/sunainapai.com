@@ -1,6 +1,7 @@
 NAME = sunainapai
 FQDN = $(NAME).com
-MAIL = $(NAME).in@gmail.com
+FQDN_IN = $(NAME).in
+MAIL = $(FQDN_IN)@gmail.com
 
 help:
 	@echo 'Usage: make [target]'
@@ -28,7 +29,7 @@ setup:
 https: http
 	@echo Setting up HTTPS website ...
 	certbot certonly -n --agree-tos -m '$(MAIL)' --webroot \
-	                 -w '/var/www/$(FQDN)' -d '$(FQDN),www.$(FQDN)'
+	                 -w '/var/www/$(FQDN)' -d '$(FQDN),www.$(FQDN),$(FQDN_IN),www.$(FQDN_IN)'
 	(crontab -l | sed '/::::/d'; cat etc/crontab) | crontab
 	ln -snf "$$PWD/etc/nginx/https.$(FQDN)" '/etc/nginx/sites-enabled/$(FQDN)'
 	systemctl reload nginx
